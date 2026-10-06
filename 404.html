@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' data: blob:; connect-src 'self' https://world.openfoodfacts.org; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <!-- viewport-fit=cover: the app draws under the notch (it handles the safe areas itself).
+         No maximum-scale: the page can be zoomed with two fingers (task A.10). The iPhone zooms by
+         itself on a text field smaller than 16 px: every field of the app is 16 px or more on the web
+         (components/ui/Text.tsx). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no" />
+    <title>LifeMax (bêta)</title>
+    <meta name="description" content="LifeMax, l'app qui transforme tes habitudes en jeu. Version de test." />
+    <!-- Test version: not for search engines -->
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- A link followed from the app never tells the other site which page the player came from -->
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- Installable on the home screen (« Sur l'écran d'accueil » on iPhone, « Installer » on Android) -->
+    <link rel="manifest" href="/lifemax-test/manifest.json" />
+    <meta name="theme-color" content="#15131F" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="LifeMax" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/lifemax-test/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/lifemax-test/icon-192.png" />
+
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+        /* « Néon doux » while the app loads, like the splash screen of the phone app */
+        background-color: #15131f;
+        /* No blue flash on touch, no text selection by a long press on a button */
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        overscroll-behavior: none;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+      /* The pixel fonts are taller than their line: the labels of the tab bar and the titles
+         were cut at the bottom on the web (a one-line text hides what goes over its box) */
+      [role="tablist"] [role="tab"] * {
+        overflow: visible !important;
+      }
+      [role="heading"],
+      [role="heading"] * {
+        overflow: visible !important;
+      }
+    </style>
+  <link rel="icon" href="/lifemax-test/favicon.ico"/></head>
+
+  <body>
+    <noscript>
+      LifeMax a besoin de JavaScript pour fonctionner.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/lifemax-test/_expo/static/js/web/index-d72e30877fdc1d15e434af185207b28d.js" defer></script>
+</body>
+</html>
